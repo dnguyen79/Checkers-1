@@ -4,7 +4,6 @@
 #include <QMainWindow>
 #include <QGraphicsScene>
 #include <QGraphicsItem>
-//#include "tile.h"
 #include "boardgame.h"
 #include "gui/guitile.h"
 #include "core/coretile.h"

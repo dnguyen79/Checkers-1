@@ -25,7 +25,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    boardgame.cpp \
     core/state.cpp \
     core/game.cpp \
     core/coreplayer.cpp \
@@ -33,7 +32,6 @@ SOURCES += main.cpp\
     gui/guitile.cpp
 
 HEADERS  += mainwindow.h \
-    boardgame.h \
     core/state.h \
     core/game.h \
     core/coreplayer.h \
