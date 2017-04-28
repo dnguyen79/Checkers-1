@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QGraphicsScene>
 #include <QGraphicsItem>
+#include "tile.h"
+#include "boardgame.h"
 
 namespace Ui {
 class MainWindow;
@@ -16,11 +18,13 @@ class MainWindow : public QMainWindow
 public:
 	explicit MainWindow(QWidget *parent = 0);
 	~MainWindow();
+	QGraphicsScene * scene;
 
 private:
 	Ui::MainWindow *ui;
-	QGraphicsScene * scene;
-	QGraphicsRectItem* rect;
+
+	Tile* rect;
+	BoardGame* boardGame;
 
 };
 

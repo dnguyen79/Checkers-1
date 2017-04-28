@@ -27,11 +27,13 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     boardgame.cpp \
     tile.cpp \
-    game.cpp
+    game.cpp \
+    player.cpp
 
 HEADERS  += mainwindow.h \
     boardgame.h \
     tile.h \
-    game.h
+    game.h \
+    player.h
 
 FORMS    += mainwindow.ui
