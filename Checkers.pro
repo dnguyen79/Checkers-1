@@ -24,8 +24,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    boardgame.cpp \
+    tile.cpp \
+    game.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    boardgame.h \
+    tile.h \
+    game.h
 
 FORMS    += mainwindow.ui
