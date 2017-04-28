@@ -4,9 +4,12 @@
 #include <QMainWindow>
 #include <QGraphicsScene>
 #include <QGraphicsItem>
-#include "tile.h"
+//#include "tile.h"
 #include "boardgame.h"
+#include "gui/guitile.h"
+#include "core/coretile.h"
 
+#include <QGraphicsSceneMouseEvent>
 namespace Ui {
 class MainWindow;
 }
@@ -20,12 +23,12 @@ public:
 	~MainWindow();
 	QGraphicsScene * scene;
 
+
 private:
 	Ui::MainWindow *ui;
 
-	Tile* rect;
-	BoardGame* boardGame;
-
+	GuiTile* guiTile;
+	CoreTile* coreTile;
 };
 
 #endif // MAINWINDOW_H

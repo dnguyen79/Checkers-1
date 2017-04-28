@@ -9,6 +9,6 @@ BoardGame::BoardGame()
 
 void BoardGame::init()
 {
-	Tile* tile = new Tile(40,40,100,100,true);
+//	Tile* tile = new Tile(40,40,100,100,true);
 	//Ui::MainWindow->scene->addItem(tile);
 }

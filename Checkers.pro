@@ -26,14 +26,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp\
         mainwindow.cpp \
     boardgame.cpp \
-    tile.cpp \
-    game.cpp \
-    player.cpp
+    core/state.cpp \
+    core/game.cpp \
+    core/coreplayer.cpp \
+    core/coretile.cpp \
+    gui/guitile.cpp
 
 HEADERS  += mainwindow.h \
     boardgame.h \
-    tile.h \
-    game.h \
-    player.h
+    core/state.h \
+    core/game.h \
+    core/coreplayer.h \
+    core/coretile.h \
+    gui/guitile.h \
+    core/position.h
 
 FORMS    += mainwindow.ui

@@ -13,19 +13,15 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->graphicsView->setScene(scene);
 	ui->graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 	ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-	ui->graphicsView->setFixedSize(800,600); // jak to skalowac?
+	ui->graphicsView->setFixedSize(800,600); // how to scale?
 
-	rect = new Tile(100,100, 40, 40, false);
+	coreTile = new CoreTile(true, 0,0);
+	guiTile = new GuiTile(100,100,50,50,true);
+	coreTile->setGuiTile(guiTile);
 
-	//rect->init();
-	rect->setPos(scene->width()/2,scene->height()/2);
-
-	//boardGame = new BoardGame();
-	//scene->addItem(boardGame);
-	scene->addItem(rect);
-
-
-
+	scene->addItem(guiTile);
+	coreTile->setIsMarked(true);
+	coreTile->setIsMarked(false);
 }
 
 MainWindow::~MainWindow()

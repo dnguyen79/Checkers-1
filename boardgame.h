@@ -3,7 +3,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsItem>
 #include <QList>
-#include "tile.h"
+//#include "tile.h"
 
 class BoardGame : public QGraphicsRectItem
 {
@@ -12,7 +12,7 @@ public:
 	void init();
 
 private:
-	QList<Tile*> tiles;
+	//QList<Tile*> tiles;
 
 };
 
