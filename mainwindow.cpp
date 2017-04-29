@@ -23,9 +23,16 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
 	delete ui;
-//	delete coreTile;
-//	delete guiTile;
 	delete game;
+	for(unsigned int i; i < guiPlayers.length(); ++i)
+	{
+		delete guiPlayers[i];
+	}
+
+	for(unsigned int i; i < guiTiles.length(); ++i)
+	{
+		delete guiTiles[i];
+	}
 }
 
 void MainWindow::initScene()
@@ -57,6 +64,8 @@ void MainWindow::initBoard()
 			game->addCoreTile(coreTile);
 
 			scene->addItem(guiTile);
+
+			guiTiles.push_back(guiTile);
 		}
 	}
 }
@@ -82,6 +91,8 @@ void MainWindow::initPlayers()
 					else guiPlayer->setColor(QColor("green"));
 					scene->addItem(guiPlayer);
 					//game->addCorePlayer(new CorePlayer(i,k));
+
+					guiPlayers.push_back(guiPlayer);
 				}
 			}
 		}
