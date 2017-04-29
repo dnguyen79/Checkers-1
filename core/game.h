@@ -11,6 +11,7 @@
 class CoreTile;
 class State;
 class MainWindow;
+class CorePlayer;
 
 class Game
 {
@@ -25,6 +26,7 @@ public:
 	void addCorePlayer(CorePlayer* corePlayer);
 private:
 	QList<CorePlayer* > players;
+
 	QList<QList<CoreTile*> > tiles;
 	State* currentState;
 

@@ -31,6 +31,7 @@ void CoreTile::setIsActive(bool value)
 
 bool CoreTile::getIsMarked() const
 {
+	qDebug("chuj");
 	return isMarked;
 }
 

@@ -7,6 +7,8 @@
 #include "../core/position.h"
 #include "../core/game.h"
 
+class Game;
+
 class GuiPlayer : public QObject, public QGraphicsEllipseItem
 {
 public:

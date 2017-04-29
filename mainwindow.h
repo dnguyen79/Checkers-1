@@ -14,6 +14,7 @@
 
 class GuiTile;
 class GuiPlayer;
+//class CorePlayer;
 
 namespace Ui {
 class MainWindow;
@@ -29,13 +30,14 @@ public:
 	QGraphicsScene * scene;
 
 	void initScene();
-	GuiTile* initGuiTile(Position position, bool isActive);
+	GuiTile* initGuiTile(int x, int y, bool isActive);
+	GuiPlayer *initGuiPlayer(Position position, bool isPlayersA);
 
 private:
 	Ui::MainWindow *ui;
 
-	void initBoard();
-	void initPlayers();
+	//void initBoard();
+	//void initPlayers();
 
 
 
