@@ -6,6 +6,7 @@ CoreTile::CoreTile(bool isActive, int x, int y, GuiTile *guiTile)
 	position.x = x;
 	position.y = y;
 	this->guiTile = guiTile;
+	this->isMarked = false;
 }
 
 QList<CoreTile *> CoreTile::getNeighbours() const

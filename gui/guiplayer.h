@@ -10,7 +10,7 @@
 class GuiPlayer : public QObject, public QGraphicsEllipseItem
 {
 public:
-	GuiPlayer(int x, int y, int w, int h, Game* game = NULL);
+	GuiPlayer(int x, int y, int w, int h, Game* game);
 
 	Position getPosition() const;
 	void setPosition(int x, int y);

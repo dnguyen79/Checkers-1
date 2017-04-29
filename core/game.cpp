@@ -1,5 +1,6 @@
 #include "game.h"
 
+#include <QDebug>
 Game::Game()
 {
 	init();
@@ -26,6 +27,7 @@ void Game::playerWasPressed(Position position)
 
 	if(tiles[x][y]->getIsMarked())
 	{
+		qDebug() << "Was marked!";
 		tiles[x][y]->setIsMarked(false);
 	}
 	else

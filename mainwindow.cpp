@@ -31,6 +31,7 @@ MainWindow::~MainWindow()
 void MainWindow::initScene()
 {
 	initBoard();
+	initPlayers();
 }
 
 void MainWindow::initBoard()
@@ -48,7 +49,7 @@ void MainWindow::initBoard()
 		{
 			bool isActive;
 
-			if((i+k)%2) isActive = true;
+			if((i+k)%2 == 0) isActive = true;
 			else isActive = false;
 			CoreTile* coreTile = new CoreTile(isActive, i,k);
 			GuiTile* guiTile = new GuiTile(startX + w*k, startY + h*i,w,h,isActive);
@@ -62,5 +63,27 @@ void MainWindow::initBoard()
 
 void MainWindow::initPlayers()
 {
-	//todo
+	int w = ui->graphicsView->width() * 0.9 * 0.125;
+	int h = ui->graphicsView->height() * 0.9 * 0.125;
+	int startX = ui->graphicsView->width() * 0.05 + 0.5*w;
+	int startY = ui->graphicsView->height() * 0.05 + 0.5*h;
+
+	for(unsigned int i = 0 ; i < 8; ++i)
+	{
+		if(i!=3 && i!=4)
+		{
+			for(unsigned int k = 0; k < 8; ++k)
+			{
+				if((i+k)%2 == 0)
+				{
+					GuiPlayer* guiPlayer = new GuiPlayer(startX + w*k, startY + h*i,w,h, game);
+					guiPlayer->setPosition(i,k);
+					if(i<4) guiPlayer->setColor(QColor("red"));
+					else guiPlayer->setColor(QColor("green"));
+					scene->addItem(guiPlayer);
+					//game->addCorePlayer(new CorePlayer(i,k));
+				}
+			}
+		}
+	}
 }

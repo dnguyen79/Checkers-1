@@ -28,14 +28,14 @@ void GuiTile::init()
 {
 	if(isActiveField())
 	{
-		standardColor = QColor(100,100,200,255);
+		standardColor = QColor(150,75,0,255);
 	}
 	else
 	{
-		standardColor = QColor(50,50,100,255);
+		standardColor = QColor(200,150,50,255);
 	}
 
-	markedColor = QColor(200,200,40, 255);
+	markedColor = QColor(40,40,200, 255);
 
 	setBrush(QBrush(standardColor));
 
