@@ -45,3 +45,8 @@ void Game::addCoreTile(CoreTile *coreTile)
 {
 	tiles[coreTile->position.x][coreTile->position.y] = coreTile;
 }
+
+void Game::addCorePlayer(CorePlayer *corePlayer)
+{
+	players.push_back(corePlayer);
+}

@@ -25,12 +25,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    core/state.cpp \
     core/game.cpp \
     core/coreplayer.cpp \
     core/coretile.cpp \
     gui/guitile.cpp \
-    gui/guiplayer.cpp
+    gui/guiplayer.cpp \
+    core/playerastate.cpp
 
 HEADERS  += mainwindow.h \
     core/state.h \
@@ -39,6 +39,7 @@ HEADERS  += mainwindow.h \
     core/coretile.h \
     gui/guitile.h \
     core/position.h \
-    gui/guiplayer.h
+    gui/guiplayer.h \
+    core/playerastate.h
 
 FORMS    += mainwindow.ui

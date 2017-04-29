@@ -1,7 +1,7 @@
 #include "guitile.h"
 
 #include <QDebug>
-GuiTile::GuiTile(int x, int y, int w, int h , bool isActiveField, QGraphicsItem* parent)
+GuiTile::GuiTile(int x, int y, int w, int h , bool isActiveField, Game *game)
 {
 	setRect(x-0.5*w, y-0.5*h, w, h);
 	this->activeField = isActiveField;
@@ -51,4 +51,9 @@ void GuiTile::setPosition(const int x, const int y)
 {
 	position.x = x;
 	position.y = y;
+}
+
+void GuiTile::mousePressEvent(QGraphicsSceneMouseEvent *event)
+{
+	game->tileWasPressed(position);
 }

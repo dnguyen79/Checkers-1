@@ -1,23 +1,21 @@
 #ifndef STATE_H
 #define STATE_H
-#include <QGraphicsScene>
-#include <QGraphicsItem>
-#include <QObject>
-#include <QMainWindow>
 
+#include "game.h"
 
-class State : public QObject
+class Game;
+
+class State
 {
-	Q_OBJECT
 public:
-	State();
+	State(Game* game) :game(game) {}
 
-signals: // sygnal wysylany do view
-void signalOn();
+	virtual void init() = 0;
+	virtual void handleInput() = 0;
+	virtual void update() = 0;
 
-public slots:
-void testSlot();
-
+private:
+	Game* game;
 };
 
 #endif // STATE_H
