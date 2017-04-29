@@ -11,18 +11,6 @@ Game::Game(MainWindow *mainWindow)
 void Game::init()
 {//dodaj pozniej w tym miejscu dodawanie sasiadow!
 
-	/*
-	for(unsigned int i=0 ; i < 8; ++i)
-	{
-		QList<CoreTile* > temporaryCoreTileList;
-		for(unsigned int k = 0; k < 8; ++k)
-		{
-			temporaryCoreTileList.push_back(NULL);
-		}
-		tiles.push_back(temporaryCoreTileList);
-	}
-
-	*/
 	for(unsigned int i=0 ; i < 8; ++i)
 	{
 		QList<CoreTile* > temporaryCoreTileList;
@@ -34,11 +22,9 @@ void Game::init()
 
 			GuiTile* currentGuiTile = mainWindow->initGuiTile(k,i,isActive);
 
-			if(currentGuiTile == NULL) qDebug("PROBLEM!");
 			CoreTile* currentCoreTile = new CoreTile(isActive,k,i,currentGuiTile);
 			temporaryCoreTileList.push_back(currentCoreTile);
-			//tiles[k][i] = new CoreTile(isActive,k,i,currentGuiTile);
-			//tiles[k][i]->setIsMarked(true);
+
 		}
 		tiles.push_back(temporaryCoreTileList);
 	}
@@ -57,30 +43,12 @@ void Game::init()
 					else isPlayersA = false;
 					CorePlayer* currentCorePlayer = new CorePlayer(k,i,mainWindow->initGuiPlayer(Position(k,i), isPlayersA));
 					players.push_back(currentCorePlayer);
-					//addCorePlayer(new CorePlayer(k,i,mainWindow->initGuiPlayer(Position(k,i), isPlayersA)));
 				}
 
 			}
 		}
 	}
-//	pla = new CorePlayer(0,0,mainWindow->initGuiPlayer(Position(0,0), true));
-	//qDebug("asssd");
 
-
-	//players
-
-	/*
-	for(unsigned int i=0 ; i < 8; ++i)
-	{
-		QList<CoreTile* > temporaryCoreTileList;
-		for(unsigned int k = 0; k < 8; ++k)
-		{
-			temporaryCoreTileList.push_back(NULL);
-		}
-		tiles.push_back(temporaryCoreTileList);
-	}
-
-	*/
 
 }
 
@@ -103,7 +71,7 @@ void Game::playerWasPressed(Position position)
 
 void Game::tileWasPressed(Position position)
 {
-	qDebug() << "tile was pressed!";
+	if(position.x == 0 && position.y == 0)qDebug() << "tile was pressed!";
 }
 
 void Game::addCoreTile(CoreTile *coreTile)

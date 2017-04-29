@@ -31,7 +31,6 @@ void GuiPlayer::setColor(const QColor &value)
 
 void GuiPlayer::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-	if(position.x == 0 && position.y ==0) qDebug() <<"!!!!!!!!!!!!!!!!!!!!";
 	game->playerWasPressed(position);
 }
 
