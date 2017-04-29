@@ -4,6 +4,7 @@
 GuiPlayer::GuiPlayer(Position position, Game *parent, MainWindow* mainWindow)
 {
 	this->game = parent;
+	this->position = position;
 	RealPosition realPosition = mainWindow->LogicalToReal(position);
 	setRect(realPosition.x - 0.5*realPosition.w, realPosition.y-0.5*realPosition.h, realPosition.w, realPosition.h);
 }
