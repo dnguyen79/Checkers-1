@@ -15,13 +15,22 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 	ui->graphicsView->setFixedSize(800,600); // how to scale?
 
+	game = new Game();
+
 	coreTile = new CoreTile(true, 0,0);
 	guiTile = new GuiTile(100,100,50,50,true);
+	guiPlayer = new GuiPlayer(100,100,50,50,game);
+	guiPlayer->setColor(QColor(100,100,20,255));
+	guiPlayer->setPosition(0,0);
 	coreTile->setGuiTile(guiTile);
+	game->addCoreTile(coreTile);
 
 	scene->addItem(guiTile);
-	coreTile->setIsMarked(true);
-	coreTile->setIsMarked(false);
+	scene->addItem(guiPlayer);
+	//coreTile->setIsMarked(true);
+	//coreTile->setIsMarked(false);
+
+
 }
 
 MainWindow::~MainWindow()

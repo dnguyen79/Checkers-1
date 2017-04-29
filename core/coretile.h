@@ -9,7 +9,7 @@
 class CoreTile
 {
 public:
-	CoreTile(bool isActive, int x, int y);
+	CoreTile(bool isActive, int x, int y, GuiTile* guiTile = NULL);
 
 	QList<CoreTile *> getNeighbours() const;
 	void setNeighbours(const QList<CoreTile *> &value);
@@ -23,6 +23,8 @@ public:
 	GuiTile *getGuiTile() const;
 	void setGuiTile(GuiTile *value);
 
+	Position position;
+
 private:
 	void markGuiTile();
 	void unMarkGuiTile();
@@ -31,7 +33,6 @@ private:
 	bool isMarked;
 	GuiTile* guiTile;
 	QList<CoreTile*> neighbours;
-	Position position;
 	};
 
 #endif // CORETILE_H

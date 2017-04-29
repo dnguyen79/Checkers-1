@@ -1,9 +1,10 @@
 #include "guiplayer.h"
 
 #include "QDebug"
-GuiPlayer::GuiPlayer(int x, int y, int w, int h, QGraphicsItem *parent)
+GuiPlayer::GuiPlayer(int x, int y, int w, int h, Game *parent)
 {
 	setRect(x-0.5*w, y-0.5*h, w, h);
+	this->game = parent;
 }
 
 Position GuiPlayer::getPosition() const
@@ -11,9 +12,10 @@ Position GuiPlayer::getPosition() const
 	return position;
 }
 
-void GuiPlayer::setPosition(const Position &value)
+void GuiPlayer::setPosition(int x, int y)
 {
-	position = value;
+	position.x = x;
+	position.y = y;
 }
 
 QColor GuiPlayer::getColor() const
@@ -24,10 +26,17 @@ QColor GuiPlayer::getColor() const
 void GuiPlayer::setColor(const QColor &value)
 {
 	color = value;
+	updateColor();
 }
 
 void GuiPlayer::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-	qDebug() << "Player was pressed!";
-	//todo: calling game method that this player was pressed.
+
+	//todo: calling game method that this player was pressed!
+	game->playerWasPressed(position);
+}
+
+void GuiPlayer::updateColor()
+{
+	setBrush(QBrush(color));
 }

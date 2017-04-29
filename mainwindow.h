@@ -6,6 +6,8 @@
 #include <QGraphicsItem>
 #include "gui/guitile.h"
 #include "core/coretile.h"
+#include "gui/guiplayer.h"
+#include "core/game.h"
 
 #include <QGraphicsSceneMouseEvent>
 namespace Ui {
@@ -27,6 +29,8 @@ private:
 
 	GuiTile* guiTile;
 	CoreTile* coreTile;
+	GuiPlayer* guiPlayer;
+	Game* game;
 };
 
 #endif // MAINWINDOW_H

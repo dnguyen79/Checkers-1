@@ -1,10 +1,11 @@
 #include "coretile.h"
 
-CoreTile::CoreTile(bool isActive, int x, int y)
+CoreTile::CoreTile(bool isActive, int x, int y, GuiTile *guiTile)
 {
 	this->isActive = isActive;
 	position.x = x;
 	position.y = y;
+	this->guiTile = guiTile;
 }
 
 QList<CoreTile *> CoreTile::getNeighbours() const
