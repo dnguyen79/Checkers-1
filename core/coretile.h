@@ -6,7 +6,7 @@
 #include "../gui/guitile.h"
 
 class GuiTile;
-//MemoryLicki!!! jezeli nie zrobisz klasy Qt!
+
 class CoreTile
 {
 public:

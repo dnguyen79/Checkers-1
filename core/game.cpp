@@ -8,7 +8,7 @@ Game::Game(MainWindow *mainWindow)
 	currentState = new PlayerAState(this);
 }
 
-void Game::init()
+void Game::initTiles()
 {//dodaj pozniej w tym miejscu dodawanie sasiadow!
 
 	for(unsigned int i=0 ; i < 8; ++i)
@@ -28,30 +28,6 @@ void Game::init()
 		}
 		tiles.push_back(temporaryCoreTileList);
 	}
-/*
-
-	for(unsigned int i = 0 ; i < 8; ++i)
-	{
-		if(i!=3 && i!=4)
-		{
-			for(unsigned int k = 0; k < 8; ++k)
-			{
-				if((i+k)%2 == 0)
-				{
-					bool isPlayersA;
-					if(i < 4) isPlayersA = true;
-					else isPlayersA = false;
-					GuiPlayer* currentGuiPlayer = mainWindow->initGuiPlayer(Position(k,i), isPlayersA);
-					CorePlayer* currentCorePlayer = new CorePlayer(k,i,currentGuiPlayer);
-					players.push_back(currentCorePlayer);
-				}
-
-			}
-		}
-	}
-	//players[0]->setPosition(Position(5,5));
-
-*/
 }
 
 void Game::initPlayers()
@@ -98,7 +74,6 @@ void Game::tileWasPressed(Position position)
 {
 	qDebug() << "tile was pressed!";
 	players[0]->setPosition(position);
-	//k = 100;
 }
 
 void Game::addCoreTile(CoreTile *coreTile)

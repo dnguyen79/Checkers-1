@@ -17,7 +17,7 @@ class Game
 {
 public:
 	Game(MainWindow* mainWindow);
-	void init();
+	void initTiles();
 	void initPlayers();
 
 	void playerWasPressed(Position position);

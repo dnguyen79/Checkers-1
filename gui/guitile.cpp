@@ -58,5 +58,4 @@ void GuiTile::setPosition(const int x, const int y)
 void GuiTile::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
 	game->tileWasPressed(position);
-	//game->playerWasPressed(position);
 }

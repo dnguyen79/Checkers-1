@@ -29,7 +29,7 @@ MainWindow::~MainWindow()
 void MainWindow::initScene()
 {qDebug("asd");
 	game = new Game(this);
-	game->init();
+	game->initTiles();
 	game->initPlayers();
 
 }
