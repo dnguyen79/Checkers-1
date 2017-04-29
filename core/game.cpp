@@ -86,36 +86,59 @@ void Game::initPlayers()
 {
 	for(unsigned int i = 0 ; i < 8; ++i)
 	{
-		if(i!=3 && i!=4)
+		QList<CorePlayer*> currentListCorePlayer;
+		for(unsigned int k = 0; k < 8; ++k)
 		{
+			currentListCorePlayer.push_back(NULL);
+		}
+		players.push_back(currentListCorePlayer);
+	}
+
+	for(unsigned int i = 0 ; i < 8; ++i)
+	{
+		//if(i!=3 && i!=4)
+		//{
+			QList<CorePlayer*> currentListCorePlayer;
 			for(unsigned int k = 0; k < 8; ++k)
 			{
-				if((i+k)%2 == 0)
+				if(i!=3 && i!=4)
 				{
-					bool isPlayersA;
-					if(i < 4) isPlayersA = true;
-					else isPlayersA = false;
-					GuiPlayer* currentGuiPlayer = mainWindow->initGuiPlayer(Position(k,i), isPlayersA);
-					CorePlayer* currentCorePlayer = new CorePlayer(k,i,currentGuiPlayer);
-					players.push_back(currentCorePlayer);
+					if((i+k)%2 == 0)
+					{
+						bool isPlayersA;
+						if(i < 4) isPlayersA = true;
+						else isPlayersA = false;
+						GuiPlayer* currentGuiPlayer = mainWindow->initGuiPlayer(Position(k,i), isPlayersA);
+						CorePlayer* currentCorePlayer = new CorePlayer(k,i,currentGuiPlayer, isPlayersA);
+						//players[k][i] = currentCorePlayer;
+						players[i][k] = currentCorePlayer;
+						//players.push_back(currentCorePlayer);
+					}
 				}
 
+
 			}
-		}
 	}
 }
 
 void Game::playerWasPressed(Position position)
 {
+	//currentState->playerWasPressed(position);
+
 	int x = position.x;
 	int y = position.y;
-	k =10;
+
+	if(!players[y][x]->getIsPlayersA())
+	{
+		qDebug() << "It is not your turn!";
+		return;
+	}
 
 	bool isMarked = tiles[y][x]->getIsMarked();
 
 	tiles[y][x]->setIsMarked(!isMarked);
 	//mark every neighbour
-	for(unsigned int i = 0; i < tiles[y][x]->neighbours.length(); ++i)
+	for(int i = 0; i < tiles[y][x]->neighbours.length(); ++i)
 	{
 		tiles[y][x]->neighbours[i]->setIsMarked(!isMarked);
 	}
@@ -125,7 +148,7 @@ void Game::playerWasPressed(Position position)
 void Game::tileWasPressed(Position position)
 {
 	qDebug() << "tile was pressed!";
-	players[0]->setPosition(position);
+	players[0][0]->setPosition(position);
 }
 
 void Game::addCoreTile(CoreTile *coreTile)
@@ -135,7 +158,7 @@ void Game::addCoreTile(CoreTile *coreTile)
 
 void Game::addCorePlayer(CorePlayer *corePlayer)
 {
-	players.push_back(corePlayer);
+//	players.push_back(corePlayer);
 }
 
 MainWindow *Game::getMainWindow() const

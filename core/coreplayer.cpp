@@ -1,10 +1,11 @@
 #include "coreplayer.h"
 
-CorePlayer::CorePlayer(int x, int y, GuiPlayer* guiPlayer)
+CorePlayer::CorePlayer(int x, int y, GuiPlayer* guiPlayer, bool isPlayersA)
 {
 	position.x = x;
 	position.y = y;
 	this->guiPlayer = guiPlayer;
+	this->isPlayersA = isPlayersA;
 }
 
 Position CorePlayer::getPosition() const
@@ -17,4 +18,9 @@ void CorePlayer::setPosition(const Position &value)
     position = value;
 	//calling gui method:
 	guiPlayer->setPosition(value);
+}
+
+bool CorePlayer::getIsPlayersA() const
+{
+	return isPlayersA;
 }

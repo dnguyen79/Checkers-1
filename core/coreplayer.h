@@ -8,12 +8,14 @@ class GuiPlayer;
 class CorePlayer
 {
 public:
-	CorePlayer(int x, int y, GuiPlayer *guiPlayer);
+	CorePlayer(int x, int y, GuiPlayer *guiPlayer, bool isPlayersA);
 
 	//changing positions itd
 
 	Position getPosition() const;
 	void setPosition(const Position &value);
+
+	bool getIsPlayersA() const;
 
 private:
 	bool isPlayersA;
