@@ -68,3 +68,18 @@ GuiPlayer *MainWindow::initGuiPlayer(Position position, bool isPlayersA) //-||- 
 
 	return result;
 }
+
+RealPosition MainWindow::LogicalToReal(Position position)
+{
+	int w = ui->graphicsView->width() * 0.9 * 0.125;
+	int h = ui->graphicsView->height() * 0.9 * 0.125;
+	int startX = ui->graphicsView->width() * 0.05 + 0.5*w;
+	int startY = ui->graphicsView->height() * 0.05 + 0.5*h;
+
+	return RealPosition(
+				startX + position.x*w,
+				startY + position.y*h,
+				w,
+				h
+				);
+}

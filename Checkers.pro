@@ -40,6 +40,7 @@ HEADERS  += mainwindow.h \
     gui/guitile.h \
     core/position.h \
     gui/guiplayer.h \
-    core/playerastate.h
+    core/playerastate.h \
+    core/realposition.h
 
 FORMS    += mainwindow.ui

@@ -9,7 +9,7 @@
 #include "gui/guiplayer.h"
 #include "core/game.h"
 #include <QList>
-
+#include "core/realposition.h"
 #include <QGraphicsSceneMouseEvent>
 
 class GuiTile;
@@ -33,13 +33,11 @@ public:
 	GuiTile* initGuiTile(int x, int y, bool isActive);
 	GuiPlayer *initGuiPlayer(Position position, bool isPlayersA);
 
+	RealPosition LogicalToReal(Position position);
+
+
 private:
 	Ui::MainWindow *ui;
-
-	//void initBoard();
-	//void initPlayers();
-
-
 
 	QList<GuiTile*> guiTiles;
 	QList<GuiPlayer*> guiPlayers;
