@@ -5,6 +5,7 @@ GuiTile::GuiTile(int x, int y, int w, int h , bool isActiveField, Game *game)
 {
 	setRect(x-0.5*w, y-0.5*h, w, h);
 	this->activeField = isActiveField;
+	this->game = game;
 	init();
 }
 
@@ -57,4 +58,5 @@ void GuiTile::setPosition(const int x, const int y)
 void GuiTile::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
 	game->tileWasPressed(position);
+	//game->playerWasPressed(position);
 }

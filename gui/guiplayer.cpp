@@ -5,6 +5,7 @@ GuiPlayer::GuiPlayer(Position position, Game *parent, MainWindow* mainWindow)
 {
 	this->game = parent;
 	this->position = position;
+	this->mainWindow = mainWindow;
 	RealPosition realPosition = mainWindow->LogicalToReal(position);
 	setRect(realPosition.x - 0.5*realPosition.w, realPosition.y-0.5*realPosition.h, realPosition.w, realPosition.h);
 }
@@ -14,10 +15,12 @@ Position GuiPlayer::getPosition() const
 	return position;
 }
 
-void GuiPlayer::setPosition(int x, int y)
+void GuiPlayer::setPosition(Position position)
 {
-	position.x = x;
-	position.y = y;
+	this->position = position;
+	RealPosition realPosition = mainWindow->LogicalToReal(position);
+	setRect(realPosition.x - 0.5*realPosition.w, realPosition.y-0.5*realPosition.h, realPosition.w, realPosition.h); //czy mozna?
+	//setPos(realPosition.x -0.5*realPosition.w, realPosition.y - 0.5*realPosition.h); // set rect?
 }
 
 QColor GuiPlayer::getColor() const

@@ -11,3 +11,10 @@ Position CorePlayer::getPosition() const
 {
 	return position;
 }
+
+void CorePlayer::setPosition(const Position &value)
+{
+    position = value;
+	//calling gui method:
+	guiPlayer->setPosition(value);
+}

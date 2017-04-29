@@ -28,7 +28,7 @@ void Game::init()
 		}
 		tiles.push_back(temporaryCoreTileList);
 	}
-
+/*
 
 	for(unsigned int i = 0 ; i < 8; ++i)
 	{
@@ -41,22 +41,47 @@ void Game::init()
 					bool isPlayersA;
 					if(i < 4) isPlayersA = true;
 					else isPlayersA = false;
-					CorePlayer* currentCorePlayer = new CorePlayer(k,i,mainWindow->initGuiPlayer(Position(k,i), isPlayersA));
+					GuiPlayer* currentGuiPlayer = mainWindow->initGuiPlayer(Position(k,i), isPlayersA);
+					CorePlayer* currentCorePlayer = new CorePlayer(k,i,currentGuiPlayer);
 					players.push_back(currentCorePlayer);
 				}
 
 			}
 		}
 	}
+	//players[0]->setPosition(Position(5,5));
 
+*/
+}
 
+void Game::initPlayers()
+{
+	for(unsigned int i = 0 ; i < 8; ++i)
+	{
+		if(i!=3 && i!=4)
+		{
+			for(unsigned int k = 0; k < 8; ++k)
+			{
+				if((i+k)%2 == 0)
+				{
+					bool isPlayersA;
+					if(i < 4) isPlayersA = true;
+					else isPlayersA = false;
+					GuiPlayer* currentGuiPlayer = mainWindow->initGuiPlayer(Position(k,i), isPlayersA);
+					CorePlayer* currentCorePlayer = new CorePlayer(k,i,currentGuiPlayer);
+					players.push_back(currentCorePlayer);
+				}
+
+			}
+		}
+	}
 }
 
 void Game::playerWasPressed(Position position)
 {
 	int x = position.x;
 	int y = position.y;
-
+	k =10;
 
 	if(tiles[y][x]->getIsMarked())
 	{
@@ -71,7 +96,9 @@ void Game::playerWasPressed(Position position)
 
 void Game::tileWasPressed(Position position)
 {
-	if(position.x == 0 && position.y == 0)qDebug() << "tile was pressed!";
+	qDebug() << "tile was pressed!";
+	players[0]->setPosition(position);
+	//k = 100;
 }
 
 void Game::addCoreTile(CoreTile *coreTile)

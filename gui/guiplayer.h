@@ -17,7 +17,7 @@ public:
 	GuiPlayer(/*int x, int y, int w, int h */Position position,Game* game, MainWindow *mainWindow);
 
 	Position getPosition() const;
-	void setPosition(int x, int y);
+	void setPosition(Position position);
 
 	QColor getColor() const;
 	void setColor(const QColor &value);
@@ -32,6 +32,7 @@ private:
 	void updateColor();
 
 	Game* game;
+	MainWindow* mainWindow;
 };
 
 #endif // GUIPLAYER_H

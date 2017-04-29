@@ -18,6 +18,7 @@ class Game
 public:
 	Game(MainWindow* mainWindow);
 	void init();
+	void initPlayers();
 
 	void playerWasPressed(Position position);
 	void tileWasPressed(Position position);
@@ -28,6 +29,7 @@ public:
 
 private:
 	QList<CorePlayer* > players;
+	int k;
 
 	QList<QList<CoreTile*> > tiles;
 	State* currentState;

@@ -13,6 +13,7 @@ public:
 	//changing positions itd
 
 	Position getPosition() const;
+	void setPosition(const Position &value);
 
 private:
 	bool isPlayersA;
