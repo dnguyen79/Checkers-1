@@ -24,15 +24,6 @@ MainWindow::~MainWindow()
 {
 	delete ui;
 	delete game;
-	for(unsigned int i; i < guiPlayers.length(); ++i)
-	{
-		delete guiPlayers[i];
-	}
-
-	for(unsigned int i; i < guiTiles.length(); ++i)
-	{
-		delete guiTiles[i];
-	}
 }
 
 void MainWindow::initScene()

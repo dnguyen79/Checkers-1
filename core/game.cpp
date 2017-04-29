@@ -36,6 +36,11 @@ void Game::playerWasPressed(Position position)
 	}
 }
 
+void Game::tileWasPressed(Position position)
+{
+	qDebug() << "tile was pressed!";
+}
+
 void Game::addCoreTile(CoreTile *coreTile)
 {
 	tiles[coreTile->position.x][coreTile->position.y] = coreTile;

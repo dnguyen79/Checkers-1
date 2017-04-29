@@ -13,11 +13,12 @@ public:
 	void init();
 
 	void playerWasPressed(Position position);
+	void tileWasPressed(Position position);
 	//void addCorePlayer(CorePlayer* corePlayer);
 	void addCoreTile(CoreTile * coreTile);
 
 private:
-	QList<CorePlayer* > players;
+	//QList<CorePlayer* > players;
 	QList<QList<CoreTile*> > tiles; // table 8x8 [x][y]
 
 };
