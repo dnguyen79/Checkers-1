@@ -8,6 +8,7 @@
 #include "core/coretile.h"
 #include "gui/guiplayer.h"
 #include "core/game.h"
+#include <QList>
 
 #include <QGraphicsSceneMouseEvent>
 namespace Ui {
@@ -23,13 +24,16 @@ public:
 	~MainWindow();
 	QGraphicsScene * scene;
 
+	void initScene();
 
 private:
 	Ui::MainWindow *ui;
 
-	GuiTile* guiTile;
-	CoreTile* coreTile;
-	GuiPlayer* guiPlayer;
+	void initBoard();
+	void initPlayers();
+
+	QList<GuiTile*> guiTiles;
+	QList<GuiPlayer*> guiPlayers;
 	Game* game;
 };
 
