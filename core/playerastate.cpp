@@ -7,6 +7,7 @@ PlayerAState::PlayerAState(Game *game)
 	this->init();
 }
 
+
 void PlayerAState::init()
 {
 	qDebug("playerAState!");
@@ -14,8 +15,6 @@ void PlayerAState::init()
 
 void PlayerAState::playerWasPressed(Position position)
 {
-
-
 	int x = position.x;
 	int y = position.y;
 
@@ -33,11 +32,14 @@ void PlayerAState::playerWasPressed(Position position)
 	{
 		game->tiles[y][x]->neighbours[i]->setIsMarked(!isMarked);
 	}
+
+	game->currentState = new MarkedAState(game);
+	delete this;
 }
 
 void PlayerAState::tileWasPressed(Position position)
 {
-	qDebug() << "tileWasPressed";
+	qDebug() << "First clicked on your player!";
 }
 
 void PlayerAState::update()

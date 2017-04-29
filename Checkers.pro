@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     core/coretile.cpp \
     gui/guitile.cpp \
     gui/guiplayer.cpp \
-    core/playerastate.cpp
+    core/playerastate.cpp \
+    core/markedastate.cpp
 
 HEADERS  += mainwindow.h \
     core/state.h \
@@ -41,6 +42,7 @@ HEADERS  += mainwindow.h \
     core/position.h \
     gui/guiplayer.h \
     core/playerastate.h \
-    core/realposition.h
+    core/realposition.h \
+    core/markedastate.h
 
 FORMS    += mainwindow.ui

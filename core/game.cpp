@@ -123,8 +123,9 @@ void Game::initPlayers()
 
 void Game::playerWasPressed(Position position)
 {
-	//currentState->playerWasPressed(position);
+	currentState->playerWasPressed(position);
 
+	/*
 	int x = position.x;
 	int y = position.y;
 
@@ -142,13 +143,15 @@ void Game::playerWasPressed(Position position)
 	{
 		tiles[y][x]->neighbours[i]->setIsMarked(!isMarked);
 	}
+	*/
 
 }
 
 void Game::tileWasPressed(Position position)
 {
-	qDebug() << "tile was pressed!";
-	players[0][0]->setPosition(position);
+	currentState->tileWasPressed(position);
+	//qDebug() << "tile was pressed!";
+	//players[0][0]->setPosition(position);
 }
 
 void Game::addCoreTile(CoreTile *coreTile)

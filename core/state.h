@@ -9,7 +9,7 @@ class State
 {
 public:
 	State(Game* game) :game(game) {}
-
+	virtual ~State() {}
 	virtual void init() = 0;
 	virtual void playerWasPressed(Position position) = 0;
 	virtual void tileWasPressed(Position position) = 0;

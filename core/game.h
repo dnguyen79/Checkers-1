@@ -6,6 +6,7 @@
 #include "state.h"
 #include <QList>
 #include "playerastate.h"
+#include "markedastate.h"
 #include "mainwindow.h"
 
 class CoreTile;
@@ -31,8 +32,6 @@ public:
 
 
 private:
-	//QList<CorePlayer* > players;
-
 	QList<QList<CorePlayer *>> players;
 
 	QList<QList<CoreTile*> > tiles;
