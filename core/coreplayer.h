@@ -5,7 +5,7 @@
 class CorePlayer
 {
 public:
-	CorePlayer();
+	CorePlayer(int x, int y);
 };
 
 #endif // COREPLAYER_H

@@ -1,6 +1,6 @@
 #include "coreplayer.h"
 
-CorePlayer::CorePlayer()
+CorePlayer::CorePlayer(int x, int y)
 {
 
 }

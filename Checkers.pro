@@ -29,7 +29,8 @@ SOURCES += main.cpp\
     core/game.cpp \
     core/coreplayer.cpp \
     core/coretile.cpp \
-    gui/guitile.cpp
+    gui/guitile.cpp \
+    gui/guiplayer.cpp
 
 HEADERS  += mainwindow.h \
     core/state.h \
@@ -37,6 +38,7 @@ HEADERS  += mainwindow.h \
     core/coreplayer.h \
     core/coretile.h \
     gui/guitile.h \
-    core/position.h
+    core/position.h \
+    gui/guiplayer.h
 
 FORMS    += mainwindow.ui

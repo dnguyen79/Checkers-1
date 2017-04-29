@@ -3,7 +3,7 @@
 
 #include <QGraphicsItem>
 #include <QGraphicsScene>
-#include <QGraphicsSceneMouseEvent>
+#include <QGraphicsSceneMouseEvent> //Do we need this?
 #include "../core/position.h"
 
 class GuiTile : public QObject, public QGraphicsRectItem
@@ -20,6 +20,7 @@ public:
 	void setPosition(const int x, const int y);
 
 private:
+	//moze pozniej trzeba dodac jakies metody do zmiany kolorow? w trakcie gry
 	QColor standardColor;
 	QColor markedColor;
 	void init();
