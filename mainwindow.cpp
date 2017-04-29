@@ -54,13 +54,8 @@ GuiPlayer *MainWindow::initGuiPlayer(Position position, bool isPlayersA) //-||- 
 {
 	GuiPlayer* result;
 
-	int w = ui->graphicsView->width() * 0.9 * 0.125;
-	int h = ui->graphicsView->height() * 0.9 * 0.125;
-	int startX = ui->graphicsView->width() * 0.05 + 0.5*w;
-	int startY = ui->graphicsView->height() * 0.05 + 0.5*h;
+	result = new GuiPlayer(position, game, this);
 
-	result = new GuiPlayer(startX + w*position.x, startY + h*position.y,w,h, game);
-	result->setPosition(position.x, position.y);
 	if(isPlayersA)result->setColor("red");
 	else result->setColor("green");
 	scene->addItem(result);

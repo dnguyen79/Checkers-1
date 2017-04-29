@@ -83,3 +83,8 @@ void Game::addCorePlayer(CorePlayer *corePlayer)
 {
 	players.push_back(corePlayer);
 }
+
+MainWindow *Game::getMainWindow() const
+{
+	return mainWindow;
+}

@@ -1,10 +1,11 @@
 #include "guiplayer.h"
 
 #include "QDebug"
-GuiPlayer::GuiPlayer(int x, int y, int w, int h, Game *parent)
+GuiPlayer::GuiPlayer(Position position, Game *parent, MainWindow* mainWindow)
 {
-	setRect(x-0.5*w, y-0.5*h, w, h);
 	this->game = parent;
+	RealPosition realPosition = mainWindow->LogicalToReal(position);
+	setRect(realPosition.x - 0.5*realPosition.w, realPosition.y-0.5*realPosition.h, realPosition.w, realPosition.h);
 }
 
 Position GuiPlayer::getPosition() const

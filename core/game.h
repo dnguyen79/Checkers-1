@@ -24,6 +24,8 @@ public:
 
 	void addCoreTile(CoreTile * coreTile);
 	void addCorePlayer(CorePlayer* corePlayer);
+	MainWindow *getMainWindow() const;
+
 private:
 	QList<CorePlayer* > players;
 
