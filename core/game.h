@@ -27,6 +27,8 @@ public:
 	void addCorePlayer(CorePlayer* corePlayer);
 	MainWindow *getMainWindow() const;
 
+	//CorePlayer* getPlayer
+
 private:
 	QList<CorePlayer* > players;
 	int k;

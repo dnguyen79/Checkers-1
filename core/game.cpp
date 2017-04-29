@@ -19,15 +19,67 @@ void Game::initTiles()
 			bool isActive;
 			if(!((k+i)%2)) isActive = true;
 			else isActive = false;
-
 			GuiTile* currentGuiTile = mainWindow->initGuiTile(k,i,isActive);
 
 			CoreTile* currentCoreTile = new CoreTile(isActive,k,i,currentGuiTile);
+
 			temporaryCoreTileList.push_back(currentCoreTile);
 
 		}
 		tiles.push_back(temporaryCoreTileList);
 	}
+	//neighbours
+
+	for(unsigned int i=0 ; i < 8; ++i)
+	{
+		for(unsigned int k = 0; k < 8; ++k)
+		{
+			if(tiles[k][i]->getIsActive())
+			{
+				if(i == 0)
+				{
+					if(k == 0) tiles[k][i]->neighbours.push_back(tiles[k+1][i+1]);
+					else if(k!=0 && k!=7)
+					{
+						tiles[k][i]->neighbours.push_back(tiles[k+1][i+1]);
+						tiles[k][i]->neighbours.push_back(tiles[k-1][i+1]);
+					}
+					else if(k == 7) tiles[k][i]->neighbours.push_back(tiles[k-1][i+1]);
+				}
+				else if(i!=0 && i!=7)
+				{
+					if(k == 0)
+					{
+						tiles[k][i]->neighbours.push_back(tiles[k+1][i+1]);
+						tiles[k][i]->neighbours.push_back(tiles[k+1][i-1]);
+					}
+					else if(k!=0 && k!=7)
+					{
+						tiles[k][i]->neighbours.push_back(tiles[k-1][i-1]);
+						tiles[k][i]->neighbours.push_back(tiles[k+1][i-1]);
+						tiles[k][i]->neighbours.push_back(tiles[k+1][i+1]);
+						tiles[k][i]->neighbours.push_back(tiles[k-1][i+1]);
+					}
+					else if(k == 7)
+					{
+						tiles[k][i]->neighbours.push_back(tiles[k-1][i+1]);
+						tiles[k][i]->neighbours.push_back(tiles[k-1][i-1]);
+					}
+				}
+				else if(i == 7)
+				{
+					if(k == 0) tiles[k][i]->neighbours.push_back(tiles[k+1][i-1]);
+					else if(k!=0 && k!=7)
+					{
+						tiles[k][i]->neighbours.push_back(tiles[k+1][i-1]);
+						tiles[k][i]->neighbours.push_back(tiles[k-1][i-1]);
+					}
+					else if(k == 7) tiles[k][i]->neighbours.push_back(tiles[k-1][i-1]);
+				}
+			}
+		}
+	}
+
 }
 
 void Game::initPlayers()
@@ -59,13 +111,13 @@ void Game::playerWasPressed(Position position)
 	int y = position.y;
 	k =10;
 
-	if(tiles[y][x]->getIsMarked())
+	bool isMarked = tiles[y][x]->getIsMarked();
+
+	tiles[y][x]->setIsMarked(!isMarked);
+	//mark every neighbour
+	for(unsigned int i = 0; i < tiles[y][x]->neighbours.length(); ++i)
 	{
-		tiles[y][x]->setIsMarked(false);
-	}
-	else
-	{
-		tiles[y][x]->setIsMarked(true);
+		tiles[y][x]->neighbours[i]->setIsMarked(!isMarked);
 	}
 
 }

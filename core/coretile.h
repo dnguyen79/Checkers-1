@@ -25,6 +25,7 @@ public:
 	void setGuiTile(GuiTile *value);
 
 	Position position;
+	QList<CoreTile*> neighbours;
 
 private:
 	void markGuiTile();
@@ -33,7 +34,7 @@ private:
 	bool isActive; // remember that you cannot inherite from GraphicsItem!
 	bool isMarked;
 	GuiTile* guiTile;
-	QList<CoreTile*> neighbours;
+
 	};
 
 #endif // CORETILE_H
