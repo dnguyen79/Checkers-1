@@ -5,14 +5,17 @@
 #include "position.h"
 #include "state.h"
 #include <QList>
+#include "playerastate.h"
+#include "mainwindow.h"
 
 class CoreTile;
 class State;
+class MainWindow;
 
 class Game
 {
 public:
-	Game();
+	Game(MainWindow* mainWindow);
 	void init();
 
 	void playerWasPressed(Position position);
@@ -22,8 +25,10 @@ public:
 	void addCorePlayer(CorePlayer* corePlayer);
 private:
 	QList<CorePlayer* > players;
-	QList<QList<CoreTile*> > tiles; // table 8x8 [x][y]
+	QList<QList<CoreTile*> > tiles;
 	State* currentState;
+
+	MainWindow* mainWindow;
 };
 
 #endif // GAME_H

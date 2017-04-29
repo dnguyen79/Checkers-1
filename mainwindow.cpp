@@ -27,10 +27,10 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::initScene()
-{
-	game = new Game();
-	initBoard();
-	initPlayers();
+{qDebug("asd");
+	game = new Game(this);
+	//initBoard();
+	//initPlayers();
 }
 
 void MainWindow::initBoard()
@@ -88,4 +88,20 @@ void MainWindow::initPlayers()
 			}
 		}
 	}
+}
+
+GuiTile *MainWindow::initGuiTile(Position position, bool isActive) //zwraca do coreTile wskaznik na guiTile
+{
+	GuiTile* result;
+
+	int w = ui->graphicsView->width() * 0.9 * 0.125;
+	int h = ui->graphicsView->height() * 0.9 * 0.125;
+	int startX = ui->graphicsView->width() * 0.05 + 0.5*w;
+	int startY = ui->graphicsView->height() * 0.05 + 0.5*h;
+
+	result = new GuiTile(startX + w*position.x, startY + h*position.y,w,h,isActive, game);
+	scene->addItem(result);
+	guiTiles.push_back(result);
+
+	return result;
 }

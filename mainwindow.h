@@ -11,6 +11,10 @@
 #include <QList>
 
 #include <QGraphicsSceneMouseEvent>
+
+class GuiTile;
+class GuiPlayer;
+
 namespace Ui {
 class MainWindow;
 }
@@ -25,12 +29,15 @@ public:
 	QGraphicsScene * scene;
 
 	void initScene();
+	GuiTile* initGuiTile(Position position, bool isActive);
 
 private:
 	Ui::MainWindow *ui;
 
 	void initBoard();
 	void initPlayers();
+
+
 
 	QList<GuiTile*> guiTiles;
 	QList<GuiPlayer*> guiPlayers;

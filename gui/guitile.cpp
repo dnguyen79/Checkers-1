@@ -3,7 +3,7 @@
 #include <QDebug>
 GuiTile::GuiTile(int x, int y, int w, int h , bool isActiveField, Game *game)
 {
-	setRect(x-0.5*w, y-0.5*h, w, h);
+		setRect(x-0.5*w, y-0.5*h, w, h);
 	this->activeField = isActiveField;
 	init();
 }
@@ -26,6 +26,7 @@ void GuiTile::unMark()
 
 void GuiTile::init()
 {
+
 	if(isActiveField())
 	{
 		standardColor = QColor(150,75,0,255);
