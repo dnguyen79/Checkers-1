@@ -1,29 +1,28 @@
-#include "markedastate.h"
+#include "markedbstate.h"
 
 #include <QDebug>
-MarkedAState::MarkedAState(Game *game)
+MarkedBState::MarkedBState(Game *game)
 	:State(game)
 {
 	init();
 }
 
-
-void MarkedAState::init()
+void MarkedBState::init()
 {
-	qDebug("MarkedAState!");
+	qDebug() << "MarkedBState!";
 }
 
-void MarkedAState::playerWasPressed(Position position)
+void MarkedBState::playerWasPressed(Position position)
 {
 	qDebug() << "Choose your move!";
 	if(game->pressedPlayer->getPosition().x == position.x && game->pressedPlayer->getPosition().y == position.y)
 	{
-		game->currentState = new PlayerAState(game);
+		game->currentState = new PlayerBState(game);
 		delete this;
 	}
 }
 
-void MarkedAState::tileWasPressed(Position position)
+void MarkedBState::tileWasPressed(Position position)
 {
 	if(game->tiles[position.y][position.x]->getIsMarked())
 	{
@@ -32,16 +31,17 @@ void MarkedAState::tileWasPressed(Position position)
 		game->players[position.y][position.x] = game->players[oldPosition.y][oldPosition.x];
 		game->players[oldPosition.y][oldPosition.x] = NULL;
 		game->pressedPlayer->setPosition(position);
-		game->currentState = new PlayerBState(game);// B state
+		game->currentState = new PlayerAState(game);// A state
 		delete this;
 	}
 	else
 	{
 		qDebug("You have to choose marked tile!");
 	}
+
 }
 
-void MarkedAState::update()
+void MarkedBState::update()
 {
 
 }

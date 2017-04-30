@@ -7,6 +7,8 @@
 #include <QList>
 #include "playerastate.h"
 #include "markedastate.h"
+#include "playerbstate.h"
+#include "markedbstate.h"
 #include "mainwindow.h"
 
 class CoreTile;
@@ -18,6 +20,8 @@ class Game
 {
 	friend class PlayerAState;
 	friend class MarkedAState;
+	friend class PlayerBState;
+	friend class MarkedBState;
 
 public:
 	Game(MainWindow* mainWindow);
