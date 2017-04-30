@@ -40,6 +40,12 @@ void MarkedBState::tileWasPressed(Position position)
 		{
 			qDebug() << "killing Player";
 			game->removePlayer(Position(oldPosition.x + dx/2, oldPosition.y + dy/2));
+			if(++game->scoreB >= 12)
+			{
+				game->currentState = new EndState(game);// B state
+				delete this;
+				return;
+			}
 		}
 		game->currentState = new PlayerAState(game);// A state
 		delete this;

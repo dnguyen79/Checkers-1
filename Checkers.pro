@@ -33,7 +33,8 @@ SOURCES += main.cpp\
     core/playerastate.cpp \
     core/markedastate.cpp \
     core/playerbstate.cpp \
-    core/markedbstate.cpp
+    core/markedbstate.cpp \
+    core/endstate.cpp
 
 HEADERS  += mainwindow.h \
     core/state.h \
@@ -47,6 +48,7 @@ HEADERS  += mainwindow.h \
     core/realposition.h \
     core/markedastate.h \
     core/playerbstate.h \
-    core/markedbstate.h
+    core/markedbstate.h \
+    core/endstate.h
 
 FORMS    += mainwindow.ui

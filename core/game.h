@@ -9,6 +9,7 @@
 #include "markedastate.h"
 #include "playerbstate.h"
 #include "markedbstate.h"
+#include "endstate.h"
 #include "mainwindow.h"
 
 class CoreTile;
@@ -22,6 +23,7 @@ class Game
 	friend class MarkedAState;
 	friend class PlayerBState;
 	friend class MarkedBState;
+	friend class EndState;
 
 public:
 	Game(MainWindow* mainWindow);
