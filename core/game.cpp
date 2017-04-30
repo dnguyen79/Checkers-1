@@ -5,6 +5,7 @@ Game::Game(MainWindow *mainWindow)
 {
 	this->mainWindow = mainWindow;
 	//currentState = new PlayerAState(this);
+	scoreA = scoreB = 0;
 }
 
 void Game::initTiles()
@@ -168,4 +169,12 @@ void Game::addCorePlayer(CorePlayer *corePlayer)
 MainWindow *Game::getMainWindow() const
 {
 	return mainWindow;
+}
+
+void Game::removePlayer(Position position)
+{
+	CorePlayer* player = players[position.y][position.x];
+	mainWindow->removePlayer(player->getGuiPlayer());
+	//delete players[position.y][position.x];
+	players[position.y][position.x] = NULL;
 }

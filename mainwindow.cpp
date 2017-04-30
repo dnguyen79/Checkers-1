@@ -46,7 +46,7 @@ GuiTile *MainWindow::initGuiTile(int x, int y, bool isActive) //zwraca do coreTi
 	result = new GuiTile(startX + w*x, startY + h*y,w,h,isActive, game);
 	result->setPosition(x,y);
 	scene->addItem(result);
-	guiTiles.push_back(result);
+	//guiTiles.push_back(result);
 
 	return result;
 }
@@ -60,9 +60,17 @@ GuiPlayer *MainWindow::initGuiPlayer(Position position, bool isPlayersA) //-||- 
 	if(isPlayersA)result->setColor("red");
 	else result->setColor("green");
 	scene->addItem(result);
-	guiPlayers.push_back(result);
+	//guiPlayers.push_back(result);
 
 	return result;
+}
+
+void MainWindow::removePlayer(GuiPlayer *guiPlayer)
+{
+	qDebug() << "Removing gui Player!";
+	guiPlayer->hide();
+	scene->removeItem(guiPlayer);
+	delete guiPlayer;
 }
 
 RealPosition MainWindow::LogicalToReal(Position position)

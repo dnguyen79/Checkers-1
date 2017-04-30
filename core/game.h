@@ -35,12 +35,17 @@ public:
 	void addCorePlayer(CorePlayer* corePlayer);
 	MainWindow *getMainWindow() const;
 
+	void removePlayer(Position position);
+
 
 private:
 	QList<QList<CorePlayer *>> players;
 	CorePlayer* pressedPlayer;
 	QList<QList<CoreTile*> > tiles;
 	State* currentState;
+
+	int scoreA;
+	int scoreB;
 
 	MainWindow* mainWindow;
 };

@@ -33,6 +33,8 @@ public:
 	GuiTile* initGuiTile(int x, int y, bool isActive);
 	GuiPlayer *initGuiPlayer(Position position, bool isPlayersA);
 
+	void removePlayer(GuiPlayer* guiPlayer);
+
 	RealPosition LogicalToReal(Position position);
 
 

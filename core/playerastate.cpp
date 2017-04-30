@@ -45,7 +45,8 @@ void PlayerAState::playerWasPressed(Position position)
 	//bool isMarked = game->tiles[y][x]->getIsMarked();
 	game->pressedPlayer = game->players[position.y][position.x];
 
-	//game->tiles[y][x]->setIsMarked(!isMarked);
+	//tutaj bedzie blad
+	game->tiles[y][x]->setIsMarked(true);
 
 	//mark every neighbour
 	for(int i = 0; i < game->tiles[y][x]->neighbours.length(); ++i)

@@ -17,6 +17,8 @@ public:
 
 	bool getIsPlayersA() const;
 
+	GuiPlayer *getGuiPlayer() const;
+
 private:
 	bool isPlayersA;
 	Position position;

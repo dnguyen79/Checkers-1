@@ -60,3 +60,8 @@ void CoreTile::setGuiTile(GuiTile *value)
 {
 	guiTile = value;
 }
+
+void CoreTile::removeGuiTile()
+{
+
+}

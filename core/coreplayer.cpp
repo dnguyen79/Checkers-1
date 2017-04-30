@@ -24,3 +24,8 @@ bool CorePlayer::getIsPlayersA() const
 {
 	return isPlayersA;
 }
+
+GuiPlayer *CorePlayer::getGuiPlayer() const
+{
+	return guiPlayer;
+}

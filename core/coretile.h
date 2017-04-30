@@ -23,6 +23,7 @@ public:
 
 	GuiTile *getGuiTile() const;
 	void setGuiTile(GuiTile *value);
+	void removeGuiTile();
 
 	Position position;
 	QList<CoreTile*> neighbours;

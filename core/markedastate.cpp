@@ -1,4 +1,5 @@
 #include "markedastate.h"
+#include <QtMath>
 
 #include <QDebug>
 MarkedAState::MarkedAState(Game *game)
@@ -25,13 +26,25 @@ void MarkedAState::playerWasPressed(Position position)
 
 void MarkedAState::tileWasPressed(Position position)
 {
-	if(game->tiles[position.y][position.x]->getIsMarked())
+	if(game->tiles[position.y][position.x]->getIsMarked()
+			&& game->players[position.y][position.x] == NULL)
 	{
 		//change position for pressedPlayer
 		Position oldPosition = game->pressedPlayer->getPosition();
 		game->players[position.y][position.x] = game->players[oldPosition.y][oldPosition.x];
 		game->players[oldPosition.y][oldPosition.x] = NULL;
 		game->pressedPlayer->setPosition(position);
+
+
+		int dx = position.x - oldPosition.x;
+		int dy = position.y - oldPosition.y;
+
+		if(qFabs(dx) > 1 && qFabs(dy) > 1)
+		{
+			qDebug() << "killing Player";
+			game->removePlayer(Position(oldPosition.x + dx/2, oldPosition.y + dy/2));
+		}
+
 		game->currentState = new PlayerBState(game);// B state
 		delete this;
 	}
