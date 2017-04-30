@@ -73,6 +73,12 @@ void MainWindow::removePlayer(GuiPlayer *guiPlayer)
 	delete guiPlayer;
 }
 
+void MainWindow::clearScreen()
+{
+	scene->clear();
+	//wyczysc core
+}
+
 RealPosition MainWindow::LogicalToReal(Position position)
 {
 	int w = ui->graphicsView->width() * 0.9 * 0.125;

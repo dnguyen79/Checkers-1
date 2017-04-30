@@ -33,8 +33,6 @@ public:
 	void playerWasPressed(Position position);
 	void tileWasPressed(Position position);
 
-	void addCoreTile(CoreTile * coreTile);
-	void addCorePlayer(CorePlayer* corePlayer);
 	MainWindow *getMainWindow() const;
 
 	void removePlayer(Position position);

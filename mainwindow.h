@@ -32,8 +32,8 @@ public:
 	void initScene();
 	GuiTile* initGuiTile(int x, int y, bool isActive);
 	GuiPlayer *initGuiPlayer(Position position, bool isPlayersA);
-
 	void removePlayer(GuiPlayer* guiPlayer);
+	void clearScreen();
 
 	RealPosition LogicalToReal(Position position);
 

@@ -14,7 +14,7 @@ class MainWindow;
 class GuiPlayer : public QObject, public QGraphicsEllipseItem
 {
 public:
-	GuiPlayer(/*int x, int y, int w, int h */Position position,Game* game, MainWindow *mainWindow);
+	GuiPlayer(Position position,Game* game, MainWindow *mainWindow);
 
 	Position getPosition() const;
 	void setPosition(Position position);

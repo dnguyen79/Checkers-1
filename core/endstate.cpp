@@ -11,6 +11,7 @@ void EndState::init()
 {
 	qDebug() << "EndState!";
 	//clear sreen
+	game->getMainWindow()->clearScreen();
 }
 
 void EndState::playerWasPressed(Position position)

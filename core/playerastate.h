@@ -10,13 +10,10 @@ class PlayerAState : public State
 
 public:
 	PlayerAState(Game* game);
-	//~PlayerAState();
-	// State interface
 	void init();
 	void playerWasPressed(Position position);
 	void tileWasPressed(Position position);
 	void update();
-	//void render(); // calling GUI methods in mainWindow!
 };
 
 #endif // PLAYERASTATT_H

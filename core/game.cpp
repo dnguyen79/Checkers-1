@@ -110,9 +110,7 @@ void Game::initPlayers()
 						else isPlayersA = false;
 						GuiPlayer* currentGuiPlayer = mainWindow->initGuiPlayer(Position(k,i), isPlayersA);
 						CorePlayer* currentCorePlayer = new CorePlayer(k,i,currentGuiPlayer, isPlayersA);
-						//players[k][i] = currentCorePlayer;
 						players[i][k] = currentCorePlayer;
-						//players.push_back(currentCorePlayer);
 					}
 				}
 
@@ -127,43 +125,11 @@ void Game::playerWasPressed(Position position)
 {
 	currentState->playerWasPressed(position);
 
-	/*
-	int x = position.x;
-	int y = position.y;
-
-	if(!players[y][x]->getIsPlayersA())
-	{
-		qDebug() << "It is not your turn!";
-		return;
-	}
-
-	bool isMarked = tiles[y][x]->getIsMarked();
-
-	tiles[y][x]->setIsMarked(!isMarked);
-	//mark every neighbour
-	for(int i = 0; i < tiles[y][x]->neighbours.length(); ++i)
-	{
-		tiles[y][x]->neighbours[i]->setIsMarked(!isMarked);
-	}
-	*/
-
 }
 
 void Game::tileWasPressed(Position position)
 {
 	currentState->tileWasPressed(position);
-	//qDebug() << "tile was pressed!";
-	//players[0][0]->setPosition(position);
-}
-
-void Game::addCoreTile(CoreTile *coreTile)
-{
-	tiles[coreTile->position.x][coreTile->position.y] = coreTile;
-}
-
-void Game::addCorePlayer(CorePlayer *corePlayer)
-{
-//	players.push_back(corePlayer);
 }
 
 MainWindow *Game::getMainWindow() const
@@ -175,6 +141,6 @@ void Game::removePlayer(Position position)
 {
 	CorePlayer* player = players[position.y][position.x];
 	mainWindow->removePlayer(player->getGuiPlayer());
-	//delete players[position.y][position.x];
+	delete players[position.y][position.x];
 	players[position.y][position.x] = NULL;
 }
