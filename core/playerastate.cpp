@@ -42,7 +42,7 @@ void PlayerAState::playerWasPressed(Position position)
 		return;
 	}
 
-	bool isMarked = game->tiles[y][x]->getIsMarked();
+	//bool isMarked = game->tiles[y][x]->getIsMarked();
 	game->pressedPlayer = game->players[position.y][position.x];
 
 	//game->tiles[y][x]->setIsMarked(!isMarked);
@@ -56,12 +56,10 @@ void PlayerAState::playerWasPressed(Position position)
 			int dx = neighbour->position.x - x;
 			int dy = neighbour->position.y - y;
 
-			if(neighbour->position.x + dx < 0 ||neighbour->position.x + dx > 7
+			if(!(neighbour->position.x + dx < 0 ||neighbour->position.x + dx > 7
 					||neighbour->position.y + dy > 7  || neighbour->position.y +dy < 0)
-			{
-
-			}
-			else
+					&& game->players[neighbour->position.y][neighbour->position.x] != NULL
+					&& !game->players[neighbour->position.y][neighbour->position.x]->getIsPlayersA())
 			{
 				if(game->players[neighbour->position.y + dy][neighbour->position.x + dx] == NULL)
 				{
