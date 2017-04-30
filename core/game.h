@@ -17,6 +17,7 @@ class CorePlayer;
 class Game
 {
 	friend class PlayerAState;
+	friend class MarkedAState;
 
 public:
 	Game(MainWindow* mainWindow);
@@ -33,7 +34,7 @@ public:
 
 private:
 	QList<QList<CorePlayer *>> players;
-
+	CorePlayer* pressedPlayer;
 	QList<QList<CoreTile*> > tiles;
 	State* currentState;
 

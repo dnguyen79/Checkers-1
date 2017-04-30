@@ -4,8 +4,7 @@
 Game::Game(MainWindow *mainWindow)
 {
 	this->mainWindow = mainWindow;
-	//init();
-	currentState = new PlayerAState(this);
+	//currentState = new PlayerAState(this);
 }
 
 void Game::initTiles()
@@ -119,6 +118,8 @@ void Game::initPlayers()
 
 			}
 	}
+
+	currentState = new PlayerAState(this);
 }
 
 void Game::playerWasPressed(Position position)

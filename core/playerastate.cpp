@@ -11,6 +11,16 @@ PlayerAState::PlayerAState(Game *game)
 void PlayerAState::init()
 {
 	qDebug("playerAState!");
+
+	for(int i = 0; i < 8; ++i)
+	{
+		for(int k = 0 ; k < 8; ++k)
+		{
+			game->tiles[k][i]->setIsMarked(false);
+		}
+	}
+
+	game->pressedPlayer = NULL;
 }
 
 void PlayerAState::playerWasPressed(Position position)
@@ -25,8 +35,10 @@ void PlayerAState::playerWasPressed(Position position)
 	}
 
 	bool isMarked = game->tiles[y][x]->getIsMarked();
+	game->pressedPlayer = game->players[position.y][position.x];
 
 	game->tiles[y][x]->setIsMarked(!isMarked);
+
 	//mark every neighbour
 	for(int i = 0; i < game->tiles[y][x]->neighbours.length(); ++i)
 	{
