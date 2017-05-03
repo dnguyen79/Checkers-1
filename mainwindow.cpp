@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QGraphicsGridLayout>
 
 #include <QDebug>
 MainWindow::MainWindow(QWidget *parent) :
@@ -14,9 +15,11 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->graphicsView->setScene(scene);
 	ui->graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 	ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-	ui->graphicsView->setFixedSize(800,600); // how to scale?
-
+	//ui->graphicsView->setFixedHeight();
+	//ui->graphicsView->setFixedSize(800,600); // how to scale?
 	initScene();
+	//ui->graphicsView->fitInView(scene->sceneRect() ,Qt::KeepAspectRatio);
+
 
 }
 
@@ -32,16 +35,21 @@ void MainWindow::initScene()
 	game->initTiles();
 	game->initPlayers();
 
+	//scene->addEllipse(0,100,100,100);
+	//scene->addEllipse(100,100,100,100);
+	//scene->addEllipse(0,100,100,100);
+	//ui->graphicsView->matrix()
+
 }
 
 GuiTile *MainWindow::initGuiTile(int x, int y, bool isActive) //zwraca do coreTile wskaznik na guiTile
 {
 	GuiTile* result;
 
-	int w = ui->graphicsView->width() * 0.9 * 0.125;
-	int h = ui->graphicsView->height() * 0.9 * 0.125;
-	int startX = ui->graphicsView->width() * 0.05 + 0.5*w;
-	int startY = ui->graphicsView->height() * 0.05 + 0.5*h;
+	int w = 800/*ui->graphicsView->width()*/ * 0.9 * 0.125;
+	int h = 600/*ui->graphicsView->height()*/ * 0.9 * 0.125;
+	int startX = 800/*ui->graphicsView->width()*/ * 0.05 + 0.5*w;
+	int startY = 600/*ui->graphicsView->height()*/ * 0.05 + 0.5*h;
 
 	result = new GuiTile(startX + w*x, startY + h*y,w,h,isActive, game);
 	result->setPosition(x,y);
@@ -81,10 +89,10 @@ void MainWindow::clearScreen()
 
 RealPosition MainWindow::LogicalToReal(Position position)
 {
-	int w = ui->graphicsView->width() * 0.9 * 0.125;
-	int h = ui->graphicsView->height() * 0.9 * 0.125;
-	int startX = ui->graphicsView->width() * 0.05 + 0.5*w;
-	int startY = ui->graphicsView->height() * 0.05 + 0.5*h;
+	int w = 800/*ui->graphicsView->width()*/ * 0.9 * 0.125;
+	int h = 600/*ui->graphicsView->height()*/ * 0.9 * 0.125;
+	int startX = 800/*ui->graphicsView->width()*/ * 0.05 + 0.5*w;
+	int startY = 600/*ui->graphicsView->height()*/ * 0.05 + 0.5*h;
 
 	return RealPosition(
 				startX + position.x*w,
@@ -92,4 +100,24 @@ RealPosition MainWindow::LogicalToReal(Position position)
 				w,
 				h
 				);
+}
+
+void MainWindow::resizeEvent(QResizeEvent *e)
+{
+	QRectF bounds = scene->itemsBoundingRect();
+		//bounds.setWidth(bounds.width()*0.9);         // to tighten-up margins
+		//bounds.setHeight(bounds.height()*0.9 + 1);       // same as above
+		ui->graphicsView->fitInView(bounds, Qt::KeepAspectRatio);
+		//ui->gameBoard->centerOn(0, 0);
+}
+
+void MainWindow::showEvent(QShowEvent *e)
+{
+	ui->graphicsView->fitInView(scene->itemsBoundingRect(),Qt::KeepAspectRatio);
+}
+
+void MainWindow::mousePressEvent(QMouseEvent *e)
+{
+	//scene->addEllipse(0,0,100,100);
+	//scene->addEllipse(100,0,100,100);
 }

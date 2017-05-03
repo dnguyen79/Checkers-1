@@ -37,6 +37,11 @@ public:
 
 	RealPosition LogicalToReal(Position position);
 
+protected:
+	void resizeEvent(QResizeEvent* e);
+	void showEvent(QShowEvent* e);
+	void mousePressEvent(QMouseEvent* e);
+
 
 private:
 	Ui::MainWindow *ui;
