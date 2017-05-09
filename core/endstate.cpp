@@ -10,7 +10,6 @@ EndState::EndState(Game *game)
 void EndState::init()
 {
 	qDebug() << "EndState!";
-	//clear sreen
 	game->getMainWindow()->clearScreen();
 }
 

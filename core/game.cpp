@@ -8,6 +8,27 @@ Game::Game(MainWindow *mainWindow)
 	scoreA = scoreB = 0;
 }
 
+Game::~Game()
+{
+	for(unsigned int i = 0; i < tiles.length(); ++i)
+	{
+		for(unsigned int k = 0; k < tiles[i].length(); ++k)
+		{
+			delete tiles[i][k];
+		}
+	}
+
+	for(unsigned int i = 0; i < players.length(); ++i)
+	{
+		for(unsigned int k = 0; k < players[i].length(); ++k)
+		{
+			if(players[i][k] != NULL)delete players[i][k];
+		}
+	}
+
+	delete currentState;
+}
+
 void Game::initTiles()
 {//dodaj pozniej w tym miejscu dodawanie sasiadow!
 

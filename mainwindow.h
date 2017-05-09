@@ -14,7 +14,6 @@
 
 class GuiTile;
 class GuiPlayer;
-//class CorePlayer;
 
 namespace Ui {
 class MainWindow;
@@ -36,6 +35,11 @@ public:
 	void clearScreen();
 
 	RealPosition LogicalToReal(Position position);
+	void SetAScore(int score);
+	void SetBScore(int score);
+
+public slots:
+	void on_newgame_button_clicked();
 
 protected:
 	void resizeEvent(QResizeEvent* e);

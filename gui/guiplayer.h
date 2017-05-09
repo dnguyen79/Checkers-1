@@ -13,6 +13,8 @@ class MainWindow;
 
 class GuiPlayer : public QObject, public QGraphicsEllipseItem
 {
+	Q_OBJECT
+	Q_PROPERTY(QPointF pos READ pos WRITE setPos)
 public:
 	GuiPlayer(Position position,Game* game, MainWindow *mainWindow);
 

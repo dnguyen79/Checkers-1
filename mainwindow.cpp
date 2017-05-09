@@ -21,6 +21,8 @@ MainWindow::MainWindow(QWidget *parent) :
 	//ui->graphicsView->fitInView(scene->sceneRect() ,Qt::KeepAspectRatio);
 
 
+	//connect(this->centralWidget()-);
+	connect(ui->startButton,SIGNAL(clicked(bool)),this,SLOT(on_newgame_button_clicked()));
 }
 
 MainWindow::~MainWindow()
@@ -34,11 +36,8 @@ void MainWindow::initScene()
 	game = new Game(this);
 	game->initTiles();
 	game->initPlayers();
-
-	//scene->addEllipse(0,100,100,100);
-	//scene->addEllipse(100,100,100,100);
-	//scene->addEllipse(0,100,100,100);
-	//ui->graphicsView->matrix()
+	ui->label->setText("Wynik A: 0");
+	ui->label_2->setText("Wynik B: 0");
 
 }
 
@@ -102,6 +101,16 @@ RealPosition MainWindow::LogicalToReal(Position position)
 				);
 }
 
+void MainWindow::SetAScore(int score)
+{
+	ui->label->setText("Wynik A: " + QString::number(score));
+}
+
+void MainWindow::SetBScore(int score)
+{
+	ui->label_2->setText("Wynik B: " + QString::number(score));
+}
+
 void MainWindow::resizeEvent(QResizeEvent *e)
 {
 	QRectF bounds = scene->itemsBoundingRect();
@@ -120,4 +129,12 @@ void MainWindow::mousePressEvent(QMouseEvent *e)
 {
 	//scene->addEllipse(0,0,100,100);
 	//scene->addEllipse(100,0,100,100);
+}
+
+void MainWindow::on_newgame_button_clicked()
+{
+	qDebug() << "new game!";
+	delete game;
+	scene->clear();
+	initScene();
 }

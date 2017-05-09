@@ -46,6 +46,7 @@ void MarkedBState::tileWasPressed(Position position)
 				delete this;
 				return;
 			}
+			game->getMainWindow()->SetBScore(game->scoreB);
 		}
 		game->currentState = new PlayerAState(game);// A state
 		delete this;

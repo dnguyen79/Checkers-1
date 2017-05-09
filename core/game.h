@@ -27,6 +27,7 @@ class Game
 
 public:
 	Game(MainWindow* mainWindow);
+	~Game();
 	void initTiles();
 	void initPlayers();
 
@@ -36,7 +37,6 @@ public:
 	MainWindow *getMainWindow() const;
 
 	void removePlayer(Position position);
-
 
 private:
 	QList<QList<CorePlayer *>> players;
